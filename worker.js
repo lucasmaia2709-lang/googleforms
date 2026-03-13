@@ -33,7 +33,7 @@ export default {
         return new Response('Missing prompt', { status: 400, headers: corsHeaders });
       }
 
-      const apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+      const apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
       const response = await fetch(`${apiEndpoint}?key=${env.GEMINI_API_KEY}`, {
         method: 'POST',
         headers: {
@@ -42,10 +42,8 @@ export default {
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
-            temperature: 0.7,
-            topK: 40,
-            topP: 0.95,
-            maxOutputTokens: 2048,
+            temperature: 0.1, // Menor temperatura = mais precisão no formato
+            maxOutputTokens: 8192,
             responseMimeType: "application/json",
           }
         }),
@@ -53,14 +51,25 @@ export default {
 
       const geminiData = await response.json();
       
+      if (!response.ok) {
+        return new Response(JSON.stringify({ 
+          error: 'Gemini API Error', 
+          status: response.status,
+          details: geminiData 
+        }), {
+          status: response.status,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
       // Extract the candidate text
-      if (geminiData.candidates && geminiData.candidates[0].content.parts[0].text) {
+      if (geminiData.candidates && geminiData.candidates[0].content && geminiData.candidates[0].content.parts[0].text) {
           return new Response(geminiData.candidates[0].content.parts[0].text, {
               headers: { ...corsHeaders, 'Content-Type': 'application/json' }
           });
       }
 
-      return new Response(JSON.stringify({ error: 'Failed to generate content' }), {
+      return new Response(JSON.stringify({ error: 'Invalid response format from Gemini', details: geminiData }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });

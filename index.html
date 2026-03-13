@@ -45,6 +45,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             background: linear-gradient(to right, #818cf8, #c084fc);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
@@ -267,7 +268,7 @@
 
     <div class="container">
         <header>
-            <h1>Form Manager Pro</h1>
+            <h1>Form Manager Pro <span style="font-size: 0.8rem; vertical-align: middle; opacity: 0.5;">v2.2 (IA Turbo)</span></h1>
             <p class="subtitle">Visualização e Automação de Google Forms</p>
         </header>
 
@@ -580,10 +581,40 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ prompt })
                 });
-                return await response.json();
+                
+                const rawText = await response.text();
+                let result;
+                
+                const cleanJson = (text) => {
+                    // Remove backticks de markdown se a IA colocar
+                    let cleaned = text.replace(/```json/g, "").replace(/```/g, "").trim();
+                    // Garante que começa e termina com chaves
+                    const start = cleaned.indexOf('{');
+                    const end = cleaned.lastIndexOf('}');
+                    if (start !== -1 && end !== -1) {
+                        cleaned = cleaned.substring(start, end + 1);
+                    }
+                    return cleaned;
+                };
+
+                try {
+                    result = JSON.parse(cleanJson(rawText));
+                } catch (e) {
+                    console.error('Falha ao parsear JSON:', rawText);
+                    alert(`Erro Crítico de Formatação: A IA não devolveu um JSON limpo.\n\nRESPOSTA DA IA:\n${rawText.substring(0, 800)}`);
+                    return null;
+                }
+                
+                if (!response.ok) {
+                    console.error('Erro Worker:', result);
+                    alert(`Erro na IA (${response.status}): ${result.error || 'Erro desconhecido'}`);
+                    return null;
+                }
+                
+                return result;
             } catch (error) {
-                console.error('Erro na IA:', error);
-                alert('Erro ao falar com a IA. Verifique a URL do Worker.');
+                console.error('Erro de Rede/Fetch:', error);
+                alert(`Erro de conexão!\n\nDetalhe técnico: ${error.message}`);
                 return null;
             }
         }
@@ -593,9 +624,8 @@
             showLoading('IA construindo persona de Engenheiro Civil...');
             
             const prompt = `Gere uma descrição curta e psicológica de um Engenheiro Civil que vai responder uma pesquisa. 
-            O perfil geral dele deve ser: ${profile}. 
-            Seja específico sobre o tempo de carreira e o estado de espírito dele hoje. 
-            Retorne um JSON no formato: {"persona": "descrição aqui"}`;
+            O perfil geral deve ser: ${profile}. 
+            Retorne um JSON: {"persona": "descrição curta aqui"}`;
 
             const result = await callIA(prompt);
             hideLoading();
@@ -613,25 +643,19 @@
             const persona = document.getElementById('persona-text').value || "Engenheiro Civil padrão.";
             const questionsSummary = currentFormData.filter(q => q.entradas.length > 0).map(q => ({
                 id: q.id,
-                titulo: q.titulo,
-                entradas: q.entradas.map(e => ({
-                    entryId: e.entryId,
-                    label: e.subTitulo || 'Resposta',
-                    opcoes: e.alternativas
+                t: (q.titulo || '').substring(0, 30), // Título ultra reduzido
+                e: q.entradas.map(e => ({
+                    i: e.entryId,
+                    o: e.alternativas
                 }))
             }));
 
             showLoading('Engenheiro Civil analisando questões com IA...');
 
-            const prompt = `Você é um Engenheiro Civil com o seguinte perfil: "${persona}". 
-            Responda o formulário abaixo de forma COERENTE com sua persona.
-            Preste atenção para não dar respostas discrepantes ou aleatórias.
-            IMPORTANTE: Para cada entryId, escolha APENAS o ÍNDICE (0, 1, 2...) da melhor opção.
-            
-            Formulário: ${JSON.stringify(questionsSummary)}
-            
-            Retorne APENAS um objeto JSON onde a chave é o entryId (string) e o valor é o índice (inteiro). 
-            Exemplo: {"12345": 4, "67890": 0}`;
+            const prompt = `Persona: "${persona}". 
+            Responda o formulário. Use APENAS o ÍNDICE da opção.
+            Form: ${JSON.stringify(questionsSummary)}
+            Retorne APENAS um JSON plano: {"entryId": índice}.`;
 
             const result = await callIA(prompt);
             hideLoading();
@@ -641,20 +665,22 @@
                 // Aplicar respostas da IA
                 for (let entryId in result) {
                     const index = result[entryId];
-                    const entryElem = document.querySelector(`.entry-id`); // Simples busca para UI
                     
                     // Atualizar UI e Dados Internos
                     currentFormData.forEach(q => {
                         q.entradas.forEach(e => {
                             if (e.entryId.toString() === entryId.toString()) {
-                                const valor = e.alternativas[index];
+                                const alternatives = e.alternativas;
+                                // Segurança se a IA der um índice fora
+                                const safeIndex = Math.max(0, Math.min(alternatives.length - 1, index));
+                                const valor = alternatives[safeIndex];
                                 chosenData[`entry.${e.entryId}`] = valor;
                                 
                                 // Atualizar UI
                                 document.querySelectorAll('.entry-item').forEach(item => {
                                     if (item.querySelector('.entry-id').textContent === `entry.${e.entryId}`) {
                                         item.querySelectorAll('.option-tag').forEach((tag, i) => {
-                                            if (i === index) {
+                                            if (i === safeIndex) {
                                                 tag.style.background = 'var(--accent)';
                                                 tag.style.color = 'white';
                                                 tag.style.fontWeight = '700';
@@ -672,18 +698,14 @@
                     });
                 }
                 
-                // Aplicar restrições de dados pessoais (fixas, para garantir segurança)
-                for (let entryId in fixedConstraints) {
-                    const allowed = fixedConstraints[entryId];
-                    // Se a IA escolheu algo fora, o sistema de fallback ou correção manual aqui ajudaria, 
-                    // mas por agora deixamos a IA ser livre ou o usuário revisa.
-                }
-
                 document.getElementById('stats').textContent = '✨ Respostas geradas pela IA! Revise e clique em Enviar.';
                 document.getElementById('btn-review').disabled = false;
                 document.getElementById('btn-send').disabled = false;
             }
         }
+
+        loadFormData();
+    </script>
 
         loadFormData();
     </script>
