@@ -189,7 +189,7 @@
             padding: 1rem 2rem;
             display: flex;
             gap: 2rem;
-            align-items: center;
+            align-items: flex-end; /* Alinhar botões na base do campo de texto */
             position: sticky;
             top: 0;
             z-index: 100;
@@ -261,9 +261,9 @@
         </div>
         <div class="setting-field">
             <label>👤 Perfil da Persona (Base: Engenheiro Civil)</label>
-            <textarea id="persona-text" placeholder="Descreva o comportamento da IA..." rows="1" onchange="saveSettings()"></textarea>
+            <textarea id="persona-text" placeholder="Descreva o comportamento da IA..." rows="4" onchange="saveSettings()"></textarea>
         </div>
-        <button class="btn-primary" style="background: #10b981; white-space: nowrap;" onclick="gerarPersonaIA()">🎲 Gerar Persona</button>
+        <button class="btn-primary" style="background: #10b981; white-space: nowrap; height: 3.5rem;" onclick="gerarPersonaIA()">🎲 Gerar Persona</button>
     </div>
 
     <div class="container">
@@ -291,7 +291,7 @@
                     <button class="btn-primary" style="background: #6366f1;" onclick="gerarRespostasIA()">🤖 Gerar com IA</button>
                 </div>
                 <button class="btn-primary" style="background: #f59e0b;" id="btn-review" onclick="revisarNoGoogle()" disabled>🔍 Revisar no Google</button>
-                <button class="btn-primary" id="btn-send" onclick="enviarParaGoogle()" disabled>🚀 Enviar Agora</button>
+                <button class="btn-primary" id="btn-send" onclick="enviarParaGoogle()" style="display: none;" disabled>🚀 Enviar Agora</button>
             </div>
         </div>
 
@@ -703,9 +703,6 @@
                 document.getElementById('btn-send').disabled = false;
             }
         }
-
-        loadFormData();
-    </script>
 
         loadFormData();
     </script>
