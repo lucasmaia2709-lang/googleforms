@@ -1,0 +1,1355 @@
+[
+  {
+    "id": 1827588919,
+    "titulo": "Consentimento Informado",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1689161648,
+        "subTitulo": 1,
+        "alternativas": [
+          "Aceito participar",
+          "N├úo aceito participar"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 802099023,
+    "titulo": "Intraempreendedorismo",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 481608134,
+    "titulo": "Numa escala de 1 (Nunca) a 5 (Sempre), indique a frequ├¬ncia com que realiza as seguintes atividades no ├ómbito do seu trabalho:",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 2067981114,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1743965985,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 336636506,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 360127663,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 358850342,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 759080217,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 470208321,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 847943349,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 667443043,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1060877777,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 674859746,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 565970282,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1083840627,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1886116540,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2126467353,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 325232157,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 853857315,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1343283375,
+    "titulo": "Bem-estar no trabalho",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 854943152,
+    "titulo": "Numa escala de 0 a 10, atribua notas para os aspetos citados abaixo, relacionados com o seu trabalho. Considere, para responder, o seu grau de satisfa├º├úo com esses aspetos.",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1634913014,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 575207883,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1690387302,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1781156309,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 747389213,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1084052113,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 428843224,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1821940231,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 982821141,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 129959955,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1064242087,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 282059358,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1006169780,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 125290073,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1478214665,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1350592002,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1877836579,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1117408967,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 687690664,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1597974086,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1986616754,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 987353279,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 2046985589,
+        "subTitulo": 1,
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 199515969,
+    "titulo": "Abaixo encontram-se oito afirma├º├Áes com as quais pode concordar ou discordar relativamente ao seu trabalho. Utilizando uma escala de 1 (Discordo fortemente) a 5 (Concordo fortemente), indique o seu n├¡vel de concord├óncia com cada afirma├º├úo.",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 315184112,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1977289549,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 158556448,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 563932409,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1355061101,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1423010150,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 181319943,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 694395215,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 131759609,
+    "titulo": "Lideran├ºa Servidora",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 466298343,
+    "titulo": "Numa escala de 1 (Discordo Fortemente) a 5 (Concordo Fortemente), atribua notas para os aspetos citados abaixo, relacionados com o seu trabalho:",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1976545310,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1244948973,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 757708849,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 823250471,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1410376908,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 420935355,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 498452674,
+    "titulo": "Lideran├ºa Transformacional",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 229362718,
+    "titulo": "Numa escala de 1 (Discordo totalmente) a 5 (Concordo totalmente), indique o seu grau de concord├óncia relativamente ao seu l├¡der:",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 865380645,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2115769679,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 153634840,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 972488808,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 591415489,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 700788971,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1347386594,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1967752519,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 932249426,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1280716648,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1733001206,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1257184161,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1644236510,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 369447144,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 541274787,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1120639110,
+    "titulo": "Lideran├ºa ├ëtica",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 355649401,
+    "titulo": "Numa escala de 1 (Discordo totalmente) a 5 (Concordo totalmente), indique o seu grau de concord├óncia relativamente ao seu l├¡der.\n\nO meu l├¡der...",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 841527531,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1587361403,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 872717294,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2061876680,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1691150244,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2003430920,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 698444589,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1341442619,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 341562263,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1364686846,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 622339877,
+    "titulo": "Lideran├ºa Autorit├íria",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 1293037284,
+    "titulo": "Numa escala de 1 (Discordo totalmente) a 5 (Concordo totalmente), indique o seu grau de concord├óncia relativamente ao seu l├¡der:",
+    "tipo": 7,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1481425776,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 866315424,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1691926923,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1008709823,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2107463470,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 447695859,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 965032164,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1397831989,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 551740613,
+        "subTitulo": 1,
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 775197158,
+    "titulo": "Dados Pessoais ",
+    "tipo": 8,
+    "obrigatoria": false,
+    "entradas": []
+  },
+  {
+    "id": 981203387,
+    "titulo": "G├®nero:",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 597118511,
+        "subTitulo": 1,
+        "alternativas": [
+          "Masculino",
+          "Feminino",
+          "Prefiro n├úo dizer"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 588190764,
+    "titulo": "Idade:",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1551581666,
+        "subTitulo": 1,
+        "alternativas": [
+          "18-25",
+          "26-35",
+          "36-45",
+          "46-55",
+          "56-65",
+          "66 ou +"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 117258971,
+    "titulo": "Habilita├º├Áes Liter├írias:",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 838409150,
+        "subTitulo": 1,
+        "alternativas": [
+          "Ensino B├ísico / Fundamental (1┬║ ao 9┬║ ano)",
+          "Ensino Secund├írio / M├®dio (12┬║ ano)",
+          "Gradua├º├úo Licenciatura | Bacharel",
+          "P├│s-gradua├º├úo | Especializa├º├úo",
+          "Mestrado | Doutoramento"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1863986090,
+    "titulo": "Anos que trabalha na sua empresa atual?",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1238416916,
+        "subTitulo": 1,
+        "alternativas": [
+          "< 1 ano",
+          "1 - 3 anos",
+          "4 - 6 anos",
+          "> 6 anos"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1610884522,
+    "titulo": "Tamanho da organiza├º├úo onde trabalha atualmente (n├║mero aproximado de colaboradores):",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1526877193,
+        "subTitulo": 1,
+        "alternativas": [
+          "1 a 9 (Organiza├º├úo pequena)",
+          "10 a 49 (Pequena-m├®dia)",
+          "50 a 249 (Organiza├º├úo M├®dia)",
+          "250 ou mais (Empresa de grande-porte)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 90366541,
+    "titulo": "Tipo de V├¡nculo com a empresa:",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 1608516216,
+        "subTitulo": 1,
+        "alternativas": [
+          "Contrato de Trabalho",
+          "Presta├º├úo de Servi├ºos"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1684660470,
+    "titulo": "N├║mero de anos de experi├¬ncia profissional:",
+    "tipo": 2,
+    "obrigatoria": false,
+    "entradas": [
+      {
+        "entryId": 542331173,
+        "subTitulo": 1,
+        "alternativas": [
+          "0 a 2 anos",
+          "3 a 5 anos",
+          "6 a 10 anos",
+          "+ 11 anos"
+        ]
+      }
+    ]
+  }
+]

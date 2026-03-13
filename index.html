@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Form Manager Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .form-info {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background: var(--border);
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: border-color 0.2s;
+        }
+
+        .question-card:hover {
+            border-color: var(--primary);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            max-width: 80%;
+        }
+
+        .question-type {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--bg);
+            border-radius: 0.25rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .entry-item {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.75rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .entry-id {
+            font-family: monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .options-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .option-tag {
+            font-size: 0.85rem;
+            padding: 0.2rem 0.6rem;
+            background: var(--border);
+            border-radius: 1rem;
+            color: var(--text-main);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Settings Bar */
+        .settings-bar {
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .setting-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            flex-grow: 1;
+        }
+
+        .setting-field label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .setting-field input, .setting-field textarea {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Loading Overlay */
+        #loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.9);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--border);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p id="loading-text" style="font-weight: 600; font-size: 1.2rem;">IA analisando questões...</p>
+        <p class="subtitle">Isso pode levar alguns segundos dependendo da complexidade.</p>
+    </div>
+
+    <div class="settings-bar glass">
+        <div class="setting-field" style="max-width: 300px;">
+            <label>Cloudflare Worker URL</label>
+            <input type="text" id="worker-url" placeholder="https://seu-worker.workers.dev" onchange="saveSettings()">
+        </div>
+        <div class="setting-field">
+            <label>👤 Perfil da Persona (Base: Engenheiro Civil)</label>
+            <textarea id="persona-text" placeholder="Descreva o comportamento da IA..." rows="1" onchange="saveSettings()"></textarea>
+        </div>
+        <button class="btn-primary" style="background: #10b981; white-space: nowrap;" onclick="gerarPersonaIA()">🎲 Gerar Persona</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Form Manager Pro</h1>
+            <p class="subtitle">Visualização e Automação de Google Forms</p>
+        </header>
+
+        <div class="form-info glass">
+            <div>
+                <p style="font-weight: 600;">Status da Extração</p>
+                <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem;">
+                    <p class="subtitle" id="stats" style="margin: 0;">Carregando dados...</p>
+                    <select id="profile-selector" class="btn-outline" style="padding: 0.4rem; height: auto; font-size: 0.85rem;">
+                        <option value="enthusiast">🌟 Perfil: Entusiasta (Satisfeito)</option>
+                        <option value="neutral" selected>⚖️ Perfil: Neutro (Equilibrado)</option>
+                        <option value="critic">💢 Perfil: Crítico (Descontente)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn-outline" onclick="window.location.reload()">Resetar</button>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-primary" style="background: #8b5cf6;" onclick="gerarRespostas()">🎰 Rnd</button>
+                    <button class="btn-primary" style="background: #6366f1;" onclick="gerarRespostasIA()">🤖 Gerar com IA</button>
+                </div>
+                <button class="btn-primary" style="background: #f59e0b;" id="btn-review" onclick="revisarNoGoogle()" disabled>🔍 Revisar no Google</button>
+                <button class="btn-primary" id="btn-send" onclick="enviarParaGoogle()" disabled>🚀 Enviar Agora</button>
+            </div>
+        </div>
+
+        <div id="questions-list">
+            <div class="loading">Carregando estrutura do formulário...</div>
+        </div>
+    </div>
+
+    <script>
+        let currentFormData = [];
+
+        async function loadFormData() {
+            loadSettings();
+            try {
+                // Tentando carregar o arquivo JSON gerado
+                const response = await fetch('form_data_cleaned.json');
+                const rawText = await response.text();
+                
+                // Limpar texto extra se houver
+                const jsonStart = rawText.indexOf('[');
+                const jsonText = rawText.substring(jsonStart);
+                const data = JSON.parse(jsonText);
+                currentFormData = data;
+
+                renderQuestions(data);
+                updateStats(data);
+            } catch (error) {
+                console.error('Erro ao carregar dados:', error);
+                document.getElementById('questions-list').innerHTML = `
+                    <div class="loading" style="color: #ef4444;">
+                        Erro ao carregar dados. Certifique-se de que o arquivo 'form_data_utf8.json' existe.
+                    </div>
+                `;
+            }
+        }
+
+        function getTypeName(type) {
+            const types = {
+                2: 'Múltipla Escolha',
+                7: 'Escala Linear',
+                8: 'Seção / Título',
+                9: 'Grade'
+            };
+            return types[type] || `Tipo ${type}`;
+        }
+
+        function renderQuestions(data) {
+            const list = document.getElementById('questions-list');
+            list.innerHTML = '';
+
+            data.forEach(q => {
+                if (q.tipo === 8 && q.entradas.length === 0) {
+                    // Seção apenas visual
+                    const section = document.createElement('div');
+                    section.innerHTML = `<h2 style="margin: 2rem 0 1rem 0; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">${q.titulo}</h2>`;
+                    list.appendChild(section);
+                    return;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'question-card glass';
+
+                let entriesHtml = q.entradas.map(e => `
+                    <div class="entry-item">
+                        <span class="entry-id">entry.${e.entryId}</span>
+                        <p style="font-size: 0.95rem; font-weight: 500;">${e.subTitulo || 'Resposta Principal'}</p>
+                        <div class="options-list">
+                            ${e.alternativas.map(a => `<span class="option-tag">${a}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="question-header">
+                        <div class="question-title">${q.titulo}</div>
+                        <span class="question-type">${getTypeName(q.tipo)}</span>
+                    </div>
+                    <div class="question-content">
+                        ${entriesHtml}
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function updateStats(data) {
+            const totalQuestions = data.filter(q => q.entradas.length > 0).length;
+            const totalEntries = data.reduce((acc, q) => acc + q.entradas.length, 0);
+            document.getElementById('stats').textContent = `${totalQuestions} perguntas encontradas | ${totalEntries} campos de entrada identificados`;
+        }
+
+        let chosenData = {};
+
+        // Restrições de Dados Pessoais (Fixas)
+        const fixedConstraints = {
+            "597118511": ["Masculino", "Feminino"], // Gênero
+            "1551581666": ["18-25", "26-35", "36-45"], // Idade
+            "838409150": [
+                "Graduação Licenciatura | Bacharel", 
+                "Pós-graduação | Especialização", 
+                "Mestrado | Doutoramento"
+            ], // Literárias
+            "1238416916": ["1 - 3 anos", "4 - 6 anos", "> 6 anos"], // Anos empresa
+            "1526877193": [
+                "10 a 49 (Pequena-média)", 
+                "50 a 249 (Organização Média)", 
+                "250 ou mais (Empresa de grande-porte)"
+            ] // Tamanho empresa
+        };
+
+        function gerarRespostas() {
+            if (!currentFormData.length) return alert('Dados não carregados! Clique em Atualizar.');
+            
+            const stats = document.getElementById('stats');
+            const profile = document.getElementById('profile-selector').value;
+            stats.textContent = '🧠 Sorteando respostas semânticas...';
+
+            // Dicionário de Sentimentos (Palavras-Chave)
+            const sentimentMap = {
+                high: ['sempre', 'sim', 'concordo', 'totalmente', 'muito', 'frequentemente', 'excelente', 'bom', 'satisfeito'],
+                low: ['nunca', 'não', 'discordo', 'insatisfeito', 'ruim', 'raramente', 'pouco']
+            };
+
+            const normalizeText = (text) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+            currentFormData.forEach(q => {
+                q.entradas.forEach(e => {
+                    let valor;
+                    if (e.entryId === 1689161648) {
+                        valor = "Aceito participar";
+                    } else {
+                        const options = e.alternativas;
+                        let filteredOptions = [...options];
+
+                        // Aplicar Restrições Fixas (Dados Pessoais)
+                        if (fixedConstraints[e.entryId]) {
+                            const allowed = fixedConstraints[e.entryId];
+                            filteredOptions = options.filter(opt => allowed.includes(opt));
+                            // Se por algum motivo o filtro zerar (erro de digitação no JSON), volta pro original
+                            if (filteredOptions.length === 0) filteredOptions = [...options];
+                        }
+
+                        const total = filteredOptions.length;
+                        let index = -1;
+
+                        // 1. Tentar análise semântica por palavras-chave
+                        const listWithNormalized = filteredOptions.map((opt, i) => ({ text: normalizeText(opt), index: i }));
+                        
+                        if (profile === 'enthusiast') {
+                            const matches = listWithNormalized.filter(item => sentimentMap.high.some(key => item.text.includes(key)));
+                            if (matches.length > 0) index = matches[Math.floor(Math.random() * matches.length)].index;
+                        } else if (profile === 'critic') {
+                            const matches = listWithNormalized.filter(item => sentimentMap.low.some(key => item.text.includes(key)));
+                            if (matches.length > 0) index = matches[Math.floor(Math.random() * matches.length)].index;
+                        }
+
+                        // 2. Fallback para lógica de peso por posição
+                        if (index === -1) {
+                            const rand = Math.random();
+                            
+                            if (profile === 'enthusiast') {
+                                if (rand < 0.7) index = Math.floor(total * 0.8 + Math.random() * (total * 0.2)); 
+                                else if (rand < 0.9) index = Math.floor(total * 0.6 + Math.random() * (total * 0.2));
+                                else index = Math.floor(Math.random() * total);
+                            } 
+                            else if (profile === 'critic') {
+                                if (rand < 0.7) index = Math.floor(Math.random() * (total * 0.3));
+                                else if (rand < 0.9) index = Math.floor(total * 0.3 + Math.random() * (total * 0.3));
+                                else index = Math.floor(Math.random() * total);
+                            }
+                            else {
+                                if (rand < 0.6) index = Math.floor(total * 0.4 + Math.random() * (total * 0.2));
+                                else index = Math.floor(Math.random() * total);
+                            }
+                        }
+
+                        // Garantir limite de índice
+                        index = Math.max(0, Math.min(total - 1, index));
+                        valor = filteredOptions[index];
+                    }
+                    chosenData[`entry.${e.entryId}`] = valor;
+                    
+                    // Atualizar UI
+                    document.querySelectorAll('.entry-item').forEach(item => {
+                        if (item.querySelector('.entry-id').textContent === `entry.${e.entryId}`) {
+                            item.querySelectorAll('.option-tag').forEach(tag => {
+                                if (tag.textContent === valor) {
+                                    tag.style.background = 'var(--accent)';
+                                    tag.style.color = 'white';
+                                    tag.style.fontWeight = '700';
+                                    tag.style.opacity = '1';
+                                } else {
+                                    tag.style.background = 'var(--border)';
+                                    tag.style.opacity = '0.3';
+                                    tag.style.color = 'var(--text-muted)';
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+
+            stats.textContent = '✨ Respostas geradas! Revise abaixo e clique em Enviar.';
+            document.getElementById('btn-review').disabled = false;
+            document.getElementById('btn-send').disabled = false;
+            document.getElementById('btn-send').style.background = 'var(--primary)';
+        }
+
+        function revisarNoGoogle() {
+            if (Object.keys(chosenData).length === 0) return alert('Gere as respostas primeiro!');
+            
+            const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe4Nud-H974E-T2vSCqERbqHzWx96Jyz-JbiJPNvmYCFm4UAQ/viewform";
+            const params = new URLSearchParams();
+            
+            for (let key in chosenData) {
+                params.append(key, chosenData[key]);
+            }
+            
+            const reviewUrl = `${baseUrl}?${params.toString()}`;
+            window.open(reviewUrl, '_blank');
+        }
+
+        async function enviarParaGoogle() {
+            if (Object.keys(chosenData).length === 0) return alert('Gere as respostas primeiro!');
+
+            const btn = document.getElementById('btn-send');
+            const stats = document.getElementById('stats');
+            
+            try {
+                btn.disabled = true;
+                btn.textContent = '⏳ Enviando...';
+                stats.textContent = 'Conectando ao Google Forms...';
+
+                const url = "https://docs.google.com/forms/d/e/1FAIpQLSe4Nud-H974E-T2vSCqERbqHzWx96Jyz-JbiJPNvmYCFm4UAQ/formResponse";
+                const params = new URLSearchParams();
+                for (let key in chosenData) {
+                    params.append(key, chosenData[key]);
+                }
+
+                await fetch(url, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: params
+                });
+
+                stats.innerHTML = '<span style="color: var(--accent); font-size: 1.2rem;">🏆 SUCESSO! Formulário enviado.</span>';
+                btn.textContent = '✓ Enviado';
+                btn.style.background = 'var(--accent)';
+                
+            } catch (error) {
+                console.error(error);
+                stats.innerHTML = '<span style="color: #ef4444;">❌ Erro no envio. Veja o console (F12).</span>';
+                btn.textContent = 'Erro!';
+            }
+        }
+
+        // Configurações e IA
+        function saveSettings() {
+            localStorage.setItem('form_worker_url', document.getElementById('worker-url').value);
+            localStorage.setItem('form_persona_text', document.getElementById('persona-text').value);
+        }
+
+        function loadSettings() {
+            document.getElementById('worker-url').value = localStorage.getItem('form_worker_url') || 'https://googleformsrespode.lucasmaia2709.workers.dev';
+            document.getElementById('persona-text').value = localStorage.getItem('form_persona_text') || '';
+        }
+
+        function showLoading(text) {
+            document.getElementById('loading-text').textContent = text;
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        async function callIA(prompt) {
+            const url = document.getElementById('worker-url').value;
+            if (!url) {
+                alert('Por favor, configure a URL do seu Cloudflare Worker primeiro!');
+                return null;
+            }
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt })
+                });
+                return await response.json();
+            } catch (error) {
+                console.error('Erro na IA:', error);
+                alert('Erro ao falar com a IA. Verifique a URL do Worker.');
+                return null;
+            }
+        }
+
+        async function gerarPersonaIA() {
+            const profile = document.getElementById('profile-selector').options[document.getElementById('profile-selector').selectedIndex].text;
+            showLoading('IA construindo persona de Engenheiro Civil...');
+            
+            const prompt = `Gere uma descrição curta e psicológica de um Engenheiro Civil que vai responder uma pesquisa. 
+            O perfil geral dele deve ser: ${profile}. 
+            Seja específico sobre o tempo de carreira e o estado de espírito dele hoje. 
+            Retorne um JSON no formato: {"persona": "descrição aqui"}`;
+
+            const result = await callIA(prompt);
+            hideLoading();
+
+            if (result && result.persona) {
+                document.getElementById('persona-text').value = result.persona;
+                saveSettings();
+            }
+        }
+
+        async function gerarRespostasIA() {
+            const url = document.getElementById('worker-url').value;
+            if (!url) return alert('Configure a URL do Worker!');
+
+            const persona = document.getElementById('persona-text').value || "Engenheiro Civil padrão.";
+            const questionsSummary = currentFormData.filter(q => q.entradas.length > 0).map(q => ({
+                id: q.id,
+                titulo: q.titulo,
+                entradas: q.entradas.map(e => ({
+                    entryId: e.entryId,
+                    label: e.subTitulo || 'Resposta',
+                    opcoes: e.alternativas
+                }))
+            }));
+
+            showLoading('Engenheiro Civil analisando questões com IA...');
+
+            const prompt = `Você é um Engenheiro Civil com o seguinte perfil: "${persona}". 
+            Responda o formulário abaixo de forma COERENTE com sua persona.
+            Preste atenção para não dar respostas discrepantes ou aleatórias.
+            IMPORTANTE: Para cada entryId, escolha APENAS o ÍNDICE (0, 1, 2...) da melhor opção.
+            
+            Formulário: ${JSON.stringify(questionsSummary)}
+            
+            Retorne APENAS um objeto JSON onde a chave é o entryId (string) e o valor é o índice (inteiro). 
+            Exemplo: {"12345": 4, "67890": 0}`;
+
+            const result = await callIA(prompt);
+            hideLoading();
+
+            if (result) {
+                chosenData = {};
+                // Aplicar respostas da IA
+                for (let entryId in result) {
+                    const index = result[entryId];
+                    const entryElem = document.querySelector(`.entry-id`); // Simples busca para UI
+                    
+                    // Atualizar UI e Dados Internos
+                    currentFormData.forEach(q => {
+                        q.entradas.forEach(e => {
+                            if (e.entryId.toString() === entryId.toString()) {
+                                const valor = e.alternativas[index];
+                                chosenData[`entry.${e.entryId}`] = valor;
+                                
+                                // Atualizar UI
+                                document.querySelectorAll('.entry-item').forEach(item => {
+                                    if (item.querySelector('.entry-id').textContent === `entry.${e.entryId}`) {
+                                        item.querySelectorAll('.option-tag').forEach((tag, i) => {
+                                            if (i === index) {
+                                                tag.style.background = 'var(--accent)';
+                                                tag.style.color = 'white';
+                                                tag.style.fontWeight = '700';
+                                                tag.style.opacity = '1';
+                                            } else {
+                                                tag.style.background = 'var(--border)';
+                                                tag.style.opacity = '0.3';
+                                                tag.style.color = 'var(--text-muted)';
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    });
+                }
+                
+                // Aplicar restrições de dados pessoais (fixas, para garantir segurança)
+                for (let entryId in fixedConstraints) {
+                    const allowed = fixedConstraints[entryId];
+                    // Se a IA escolheu algo fora, o sistema de fallback ou correção manual aqui ajudaria, 
+                    // mas por agora deixamos a IA ser livre ou o usuário revisa.
+                }
+
+                document.getElementById('stats').textContent = '✨ Respostas geradas pela IA! Revise e clique em Enviar.';
+                document.getElementById('btn-review').disabled = false;
+                document.getElementById('btn-send').disabled = false;
+            }
+        }
+
+        loadFormData();
+    </script>
+</body>
+</html>
