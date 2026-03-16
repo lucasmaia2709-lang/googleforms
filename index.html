@@ -260,7 +260,7 @@
             <input type="text" id="worker-url" placeholder="https://seu-worker.workers.dev" onchange="saveSettings()">
         </div>
         <div class="setting-field">
-            <label>👤 Perfil da Persona (Base: Engenheiro Civil)</label>
+            <label>👤 Perfil da Persona (Ajudante Geral até Eng. Civil)</label>
             <textarea id="persona-text" placeholder="Descreva o comportamento da IA..." rows="4" onchange="saveSettings()"></textarea>
         </div>
         <button class="btn-primary" style="background: #10b981; white-space: nowrap; height: 3.5rem;" onclick="gerarPersonaIA()">🎲 Gerar Persona</button>
@@ -306,11 +306,8 @@
         async function loadFormData() {
             loadSettings();
             try {
-                // Tentando carregar o arquivo JSON gerado
                 const response = await fetch('form_data_cleaned.json');
                 const rawText = await response.text();
-                
-                // Limpar texto extra se houver
                 const jsonStart = rawText.indexOf('[');
                 const jsonText = rawText.substring(jsonStart);
                 const data = JSON.parse(jsonText);
@@ -322,7 +319,7 @@
                 console.error('Erro ao carregar dados:', error);
                 document.getElementById('questions-list').innerHTML = `
                     <div class="loading" style="color: #ef4444;">
-                        Erro ao carregar dados. Certifique-se de que o arquivo 'form_data_utf8.json' existe.
+                        Erro ao carregar dados. Certifique-se de que o arquivo 'form_data_cleaned.json' existe.
                     </div>
                 `;
             }
@@ -344,7 +341,6 @@
 
             data.forEach(q => {
                 if (q.tipo === 8 && q.entradas.length === 0) {
-                    // Seção apenas visual
                     const section = document.createElement('div');
                     section.innerHTML = `<h2 style="margin: 2rem 0 1rem 0; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">${q.titulo}</h2>`;
                     list.appendChild(section);
@@ -385,36 +381,29 @@
 
         let chosenData = {};
 
-        // Restrições de Dados Pessoais (Fixas)
         const fixedConstraints = {
-            "597118511": ["Masculino", "Feminino"], // Gênero
-            "1551581666": ["18-25", "26-35", "36-45"], // Idade
+            "597118511": ["Masculino", "Feminino"],
+            "1551581666": ["18-25", "26-35", "36-45"],
             "838409150": [
                 "Graduação Licenciatura | Bacharel", 
                 "Pós-graduação | Especialização", 
                 "Mestrado | Doutoramento"
-            ], // Literárias
-            "1238416916": ["1 - 3 anos", "4 - 6 anos", "> 6 anos"], // Anos empresa
+            ],
+            "1238416916": ["1 - 3 anos", "4 - 6 anos", "> 6 anos"],
             "1526877193": [
                 "10 a 49 (Pequena-média)", 
                 "50 a 249 (Organização Média)", 
                 "250 ou mais (Empresa de grande-porte)"
-            ] // Tamanho empresa
+            ]
         };
 
         function gerarRespostas() {
-            if (!currentFormData.length) return alert('Dados não carregados! Clique em Atualizar.');
-            
-            const stats = document.getElementById('stats');
+            if (!currentFormData.length) return alert('Dados não carregados!');
             const profile = document.getElementById('profile-selector').value;
-            stats.textContent = '🧠 Sorteando respostas semânticas...';
-
-            // Dicionário de Sentimentos (Palavras-Chave)
             const sentimentMap = {
                 high: ['sempre', 'sim', 'concordo', 'totalmente', 'muito', 'frequentemente', 'excelente', 'bom', 'satisfeito'],
                 low: ['nunca', 'não', 'discordo', 'insatisfeito', 'ruim', 'raramente', 'pouco']
             };
-
             const normalizeText = (text) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 
             currentFormData.forEach(q => {
@@ -425,21 +414,14 @@
                     } else {
                         const options = e.alternativas;
                         let filteredOptions = [...options];
-
-                        // Aplicar Restrições Fixas (Dados Pessoais)
                         if (fixedConstraints[e.entryId]) {
                             const allowed = fixedConstraints[e.entryId];
                             filteredOptions = options.filter(opt => allowed.includes(opt));
-                            // Se por algum motivo o filtro zerar (erro de digitação no JSON), volta pro original
                             if (filteredOptions.length === 0) filteredOptions = [...options];
                         }
-
                         const total = filteredOptions.length;
                         let index = -1;
-
-                        // 1. Tentar análise semântica por palavras-chave
                         const listWithNormalized = filteredOptions.map((opt, i) => ({ text: normalizeText(opt), index: i }));
-                        
                         if (profile === 'enthusiast') {
                             const matches = listWithNormalized.filter(item => sentimentMap.high.some(key => item.text.includes(key)));
                             if (matches.length > 0) index = matches[Math.floor(Math.random() * matches.length)].index;
@@ -447,115 +429,77 @@
                             const matches = listWithNormalized.filter(item => sentimentMap.low.some(key => item.text.includes(key)));
                             if (matches.length > 0) index = matches[Math.floor(Math.random() * matches.length)].index;
                         }
-
-                        // 2. Fallback para lógica de peso por posição
                         if (index === -1) {
                             const rand = Math.random();
-                            
                             if (profile === 'enthusiast') {
                                 if (rand < 0.7) index = Math.floor(total * 0.8 + Math.random() * (total * 0.2)); 
-                                else if (rand < 0.9) index = Math.floor(total * 0.6 + Math.random() * (total * 0.2));
                                 else index = Math.floor(Math.random() * total);
-                            } 
-                            else if (profile === 'critic') {
+                            } else if (profile === 'critic') {
                                 if (rand < 0.7) index = Math.floor(Math.random() * (total * 0.3));
-                                else if (rand < 0.9) index = Math.floor(total * 0.3 + Math.random() * (total * 0.3));
                                 else index = Math.floor(Math.random() * total);
-                            }
-                            else {
-                                if (rand < 0.6) index = Math.floor(total * 0.4 + Math.random() * (total * 0.2));
-                                else index = Math.floor(Math.random() * total);
+                            } else {
+                                index = Math.floor(Math.random() * total);
                             }
                         }
-
-                        // Garantir limite de índice
                         index = Math.max(0, Math.min(total - 1, index));
                         valor = filteredOptions[index];
                     }
                     chosenData[`entry.${e.entryId}`] = valor;
-                    
-                    // Atualizar UI
-                    document.querySelectorAll('.entry-item').forEach(item => {
-                        if (item.querySelector('.entry-id').textContent === `entry.${e.entryId}`) {
-                            item.querySelectorAll('.option-tag').forEach(tag => {
-                                if (tag.textContent === valor) {
-                                    tag.style.background = 'var(--accent)';
-                                    tag.style.color = 'white';
-                                    tag.style.fontWeight = '700';
-                                    tag.style.opacity = '1';
-                                } else {
-                                    tag.style.background = 'var(--border)';
-                                    tag.style.opacity = '0.3';
-                                    tag.style.color = 'var(--text-muted)';
-                                }
-                            });
-                        }
-                    });
+                    updateUISelection(e.entryId, valor);
                 });
             });
-
-            stats.textContent = '✨ Respostas geradas! Revise abaixo e clique em Enviar.';
+            document.getElementById('stats').textContent = '✨ Respostas geradas!';
             document.getElementById('btn-review').disabled = false;
             document.getElementById('btn-send').disabled = false;
-            document.getElementById('btn-send').style.background = 'var(--primary)';
+        }
+
+        function updateUISelection(entryId, valor) {
+            document.querySelectorAll('.entry-item').forEach(item => {
+                if (item.querySelector('.entry-id').textContent === `entry.${entryId}`) {
+                    item.querySelectorAll('.option-tag').forEach(tag => {
+                        if (tag.textContent === valor) {
+                            tag.style.background = 'var(--accent)';
+                            tag.style.color = 'white';
+                            tag.style.opacity = '1';
+                        } else {
+                            tag.style.background = 'var(--border)';
+                            tag.style.opacity = '0.3';
+                        }
+                    });
+                }
+            });
         }
 
         function revisarNoGoogle() {
-            if (Object.keys(chosenData).length === 0) return alert('Gere as respostas primeiro!');
-            
             const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe4Nud-H974E-T2vSCqERbqHzWx96Jyz-JbiJPNvmYCFm4UAQ/viewform";
             const params = new URLSearchParams();
-            
-            for (let key in chosenData) {
-                params.append(key, chosenData[key]);
-            }
-            
-            const reviewUrl = `${baseUrl}?${params.toString()}`;
-            window.open(reviewUrl, '_blank');
+            for (let key in chosenData) params.append(key, chosenData[key]);
+            window.open(`${baseUrl}?${params.toString()}`, '_blank');
         }
 
         async function enviarParaGoogle() {
-            if (Object.keys(chosenData).length === 0) return alert('Gere as respostas primeiro!');
-
             const btn = document.getElementById('btn-send');
-            const stats = document.getElementById('stats');
-            
             try {
                 btn.disabled = true;
                 btn.textContent = '⏳ Enviando...';
-                stats.textContent = 'Conectando ao Google Forms...';
-
                 const url = "https://docs.google.com/forms/d/e/1FAIpQLSe4Nud-H974E-T2vSCqERbqHzWx96Jyz-JbiJPNvmYCFm4UAQ/formResponse";
                 const params = new URLSearchParams();
-                for (let key in chosenData) {
-                    params.append(key, chosenData[key]);
-                }
-
-                await fetch(url, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: params
-                });
-
-                stats.innerHTML = '<span style="color: var(--accent); font-size: 1.2rem;">🏆 SUCESSO! Formulário enviado.</span>';
+                for (let key in chosenData) params.append(key, chosenData[key]);
+                await fetch(url, { method: 'POST', mode: 'no-cors', body: params });
+                document.getElementById('stats').innerHTML = '<span style="color: var(--accent);">🏆 SUCESSO!</span>';
                 btn.textContent = '✓ Enviado';
-                btn.style.background = 'var(--accent)';
-                
             } catch (error) {
-                console.error(error);
-                stats.innerHTML = '<span style="color: #ef4444;">❌ Erro no envio. Veja o console (F12).</span>';
                 btn.textContent = 'Erro!';
             }
         }
 
-        // Configurações e IA
         function saveSettings() {
             localStorage.setItem('form_worker_url', document.getElementById('worker-url').value);
             localStorage.setItem('form_persona_text', document.getElementById('persona-text').value);
         }
 
         function loadSettings() {
-            document.getElementById('worker-url').value = localStorage.getItem('form_worker_url') || 'https://googleformsrespode.lucasmaia2709.workers.dev';
+            document.getElementById('worker-url').value = localStorage.getItem('form_worker_url') || '';
             document.getElementById('persona-text').value = localStorage.getItem('form_persona_text') || '';
         }
 
@@ -568,140 +512,144 @@
             document.getElementById('loading-overlay').style.display = 'none';
         }
 
-        async function callIA(prompt) {
-            const url = document.getElementById('worker-url').value;
-            if (!url) {
-                alert('Por favor, configure a URL do seu Cloudflare Worker primeiro!');
-                return null;
+        async function gerarPersonaIA() {
+            let url = document.getElementById('worker-url').value.trim();
+            if (!url) return alert('Configure a URL do Worker!');
+            
+            // Garantir que a URL tem protocolo
+            if (!url.startsWith('http')) url = 'https://' + url;
+            
+            const profile = document.getElementById('profile-selector').options[document.getElementById('profile-selector').selectedIndex].text;
+            showLoading('IA construindo persona...');
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        type: "generate_persona",
+                        persona: "Gere uma descrição de um trabalhador da construção civil.",
+                        profile: profile 
+                    })
+                });
+                const result = await response.json();
+                if (result.persona) {
+                    // Se a IA incluiu o cargo, adicionamos no topo da descrição
+                    const header = result.cargo ? `[${result.cargo}] ` : "";
+                    document.getElementById('persona-text').value = header + result.persona;
+                    saveSettings();
+                }
+            } catch (e) {
+                alert('Erro ao gerar persona. Verifique a URL do Worker.');
             }
+            hideLoading();
+        }
+
+        async function gerarRespostasIA() {
+            let url = document.getElementById('worker-url').value.trim();
+            if (!url) return alert('Configure a URL do Worker!');
+            if (!url.startsWith('http')) url = 'https://' + url;
+            
+            const persona = document.getElementById('persona-text').value || "Engenheiro Civil padrão.";
+            const profile = document.getElementById('profile-selector').options[document.getElementById('profile-selector').selectedIndex].text;
+            
+            // 1. Identificar quais IDs ainda estão faltando
+            const requiredEntryIds = [];
+            currentFormData.forEach(q => q.entradas.forEach(e => requiredEntryIds.push(e.entryId.toString())));
+            
+            const missingIds = requiredEntryIds.filter(id => !chosenData[`entry.${id}`]);
+            
+            if (missingIds.length === 0 && Object.keys(chosenData).length > 0) {
+                if (!confirm("Todas as perguntas já estão preenchidas. Deseja gerar tudo novamente?")) return;
+                chosenData = {};
+            }
+
+            showLoading(`IA analisando ${missingIds.length || requiredEntryIds.length} questões restantes...`);
 
             try {
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt })
+                    body: JSON.stringify({ 
+                        persona, 
+                        profile,
+                        missingIds: missingIds.length > 0 ? missingIds : null 
+                    })
                 });
                 
                 const rawText = await response.text();
-                let result;
                 
-                const cleanJson = (text) => {
-                    // Remove backticks de markdown se a IA colocar
+                function repairJson(text) {
                     let cleaned = text.replace(/```json/g, "").replace(/```/g, "").trim();
-                    // Garante que começa e termina com chaves
                     const start = cleaned.indexOf('{');
-                    const end = cleaned.lastIndexOf('}');
-                    if (start !== -1 && end !== -1) {
-                        cleaned = cleaned.substring(start, end + 1);
+                    if (start === -1) return "{}";
+                    let json = cleaned.substring(start);
+                    let braces = 0;
+                    let lastValidComma = -1;
+                    for (let i = 0; i < json.length; i++) {
+                        if (json[i] === '{') braces++;
+                        if (json[i] === '}') braces--;
+                        if (json[i] === ',' && braces === 1) lastValidComma = i;
                     }
-                    return cleaned;
-                };
+                    if (braces > 0) {
+                        if (lastValidComma !== -1) json = json.substring(0, lastValidComma) + "}";
+                        else json += "}";
+                    }
+                    return json;
+                }
 
+                let result;
+                let isTruncated = false;
                 try {
-                    result = JSON.parse(cleanJson(rawText));
+                    const repaired = repairJson(rawText);
+                    result = JSON.parse(repaired);
+                    if (rawText.includes(',') && !rawText.trim().endsWith('}')) isTruncated = true;
                 } catch (e) {
-                    console.error('Falha ao parsear JSON:', rawText);
-                    alert(`Erro Crítico de Formatação: A IA não devolveu um JSON limpo.\n\nRESPOSTA DA IA:\n${rawText.substring(0, 800)}`);
-                    return null;
+                    console.error("Erro no Parse:", e);
+                    throw new Error("JSON Inválido recebido da IA");
                 }
-                
-                if (!response.ok) {
-                    console.error('Erro Worker:', result);
-                    alert(`Erro na IA (${response.status}): ${result.error || 'Erro desconhecido'}`);
-                    return null;
-                }
-                
-                return result;
-            } catch (error) {
-                console.error('Erro de Rede/Fetch:', error);
-                alert(`Erro de conexão!\n\nDetalhe técnico: ${error.message}`);
-                return null;
-            }
-        }
 
-        async function gerarPersonaIA() {
-            const profile = document.getElementById('profile-selector').options[document.getElementById('profile-selector').selectedIndex].text;
-            showLoading('IA construindo persona de Engenheiro Civil...');
-            
-            const prompt = `Gere uma descrição curta e psicológica de um Engenheiro Civil que vai responder uma pesquisa. 
-            O perfil geral deve ser: ${profile}. 
-            Retorne um JSON: {"persona": "descrição curta aqui"}`;
-
-            const result = await callIA(prompt);
-            hideLoading();
-
-            if (result && result.persona) {
-                document.getElementById('persona-text').value = result.persona;
-                saveSettings();
-            }
-        }
-
-        async function gerarRespostasIA() {
-            const url = document.getElementById('worker-url').value;
-            if (!url) return alert('Configure a URL do Worker!');
-
-            const persona = document.getElementById('persona-text').value || "Engenheiro Civil padrão.";
-            const questionsSummary = currentFormData.filter(q => q.entradas.length > 0).map(q => ({
-                id: q.id,
-                t: (q.titulo || '').substring(0, 30), // Título ultra reduzido
-                e: q.entradas.map(e => ({
-                    i: e.entryId,
-                    o: e.alternativas
-                }))
-            }));
-
-            showLoading('Engenheiro Civil analisando questões com IA...');
-
-            const prompt = `Persona: "${persona}". 
-            Responda o formulário. Use APENAS o ÍNDICE da opção.
-            Form: ${JSON.stringify(questionsSummary)}
-            Retorne APENAS um JSON plano: {"entryId": índice}.`;
-
-            const result = await callIA(prompt);
-            hideLoading();
-
-            if (result) {
-                chosenData = {};
-                // Aplicar respostas da IA
+                // 2. Mesclar novos resultados no chosenData
                 for (let entryId in result) {
-                    const index = result[entryId];
+                    let index = result[entryId];
                     
-                    // Atualizar UI e Dados Internos
+                    // FORÇAR VALORES FIXOS (Gênero e Consentimento)
+                    if (entryId.toString() === "1689161648" || entryId.toString() === "597118511") {
+                        index = 0;
+                    }
+
                     currentFormData.forEach(q => {
                         q.entradas.forEach(e => {
                             if (e.entryId.toString() === entryId.toString()) {
                                 const alternatives = e.alternativas;
-                                // Segurança se a IA der um índice fora
                                 const safeIndex = Math.max(0, Math.min(alternatives.length - 1, index));
                                 const valor = alternatives[safeIndex];
                                 chosenData[`entry.${e.entryId}`] = valor;
-                                
-                                // Atualizar UI
-                                document.querySelectorAll('.entry-item').forEach(item => {
-                                    if (item.querySelector('.entry-id').textContent === `entry.${e.entryId}`) {
-                                        item.querySelectorAll('.option-tag').forEach((tag, i) => {
-                                            if (i === safeIndex) {
-                                                tag.style.background = 'var(--accent)';
-                                                tag.style.color = 'white';
-                                                tag.style.fontWeight = '700';
-                                                tag.style.opacity = '1';
-                                            } else {
-                                                tag.style.background = 'var(--border)';
-                                                tag.style.opacity = '0.3';
-                                                tag.style.color = 'var(--text-muted)';
-                                            }
-                                        });
-                                    }
-                                });
+                                updateUISelection(e.entryId, valor);
                             }
                         });
                     });
                 }
+
+                // 3. Recalcular cobertura
+                let totalAnswered = 0;
+                requiredEntryIds.forEach(id => {
+                    if (chosenData[`entry.${id}`]) totalAnswered++;
+                });
+
+                const coverage = Math.round((totalAnswered / requiredEntryIds.length) * 100);
+                if (coverage < 100) {
+                    document.getElementById('stats').innerHTML = `⚠️ <span style="color: #f59e0b;">Progresso: ${coverage}% (${totalAnswered}/${requiredEntryIds.length})</span>. Clique novamente para gerar o restante!`;
+                } else {
+                    document.getElementById('stats').innerHTML = `✨ <span style="color: var(--accent);">100% Coberto!</span> Pronto para revisão.`;
+                }
                 
-                document.getElementById('stats').textContent = '✨ Respostas geradas pela IA! Revise e clique em Enviar.';
                 document.getElementById('btn-review').disabled = false;
                 document.getElementById('btn-send').disabled = false;
+            } catch (error) {
+                console.error(error);
+                alert('Erro na geração IA: ' + error.message);
             }
+            hideLoading();
         }
 
         loadFormData();

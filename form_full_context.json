@@ -1,0 +1,1276 @@
+[
+  {
+    "id": 1827588919,
+    "titulo": "Consentimento Informado",
+    "questoes": [
+      {
+        "entryId": 1689161648,
+        "pergunta": "Consentimento Informado",
+        "alternativas": [
+          "Aceito participar",
+          "Não aceito participar"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 481608134,
+    "titulo": "Numa escala de 1 (Nunca) a 5 (Sempre), indique a frequência com que realiza as seguintes atividades no âmbito do seu trabalho:",
+    "questoes": [
+      {
+        "entryId": 2067981114,
+        "pergunta": "Desenvolvo atividades para concretizar mudanças na minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1743965985,
+        "pergunta": "Desenvolvo atividades para alterar os atuais produtos e/ou serviços da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 336636506,
+        "pergunta": "Contribuo com ideias para a renovação estratégica da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 360127663,
+        "pergunta": "Conceptualizo novas formas de trabalhar para a minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 358850342,
+        "pergunta": "Utilizo conhecimentos de outros especialistas para inovar na minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 759080217,
+        "pergunta": "Desenvolvo atividades que alteram a estrutura da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 470208321,
+        "pergunta": "Desenvolvo atividades que alteram as práticas de trabalho da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 847943349,
+        "pergunta": "Aproveito oportunidades no mercado de trabalho ou na sociedade para renovar a minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 667443043,
+        "pergunta": "Mobilizo ativamente pessoas e recursos para mudar a minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1060877777,
+        "pergunta": "Desenvolvo atividades para criar novas unidades de negócio.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 674859746,
+        "pergunta": "Desenvolvo atividades para chegar a novos mercados ou comunidades em prol da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 565970282,
+        "pergunta": "Desenvolvo atividades que resultam na criação de novos departamentos fora da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1083840627,
+        "pergunta": "Conceptualizo novas formas de serviço para a minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1886116540,
+        "pergunta": "Desenvolvo atividades que resultam em novos projetos dentro da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2126467353,
+        "pergunta": "Estabeleço ativamente novas colaborações com especialistas fora da minha área profissional.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 325232157,
+        "pergunta": "Conceptualizo novos produtos para a minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 853857315,
+        "pergunta": "Desenvolvo atividades que resultam em novos departamentos dentro da minha organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 854943152,
+    "titulo": "Numa escala de 0 a 10, atribua notas para os aspetos citados abaixo, relacionados com o seu trabalho. Considere, para responder, o seu grau de satisfação com esses aspetos.",
+    "questoes": [
+      {
+        "entryId": 1634913014,
+        "pergunta": "Até que ponto o seu trabalho tem propósito e significado?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 575207883,
+        "pergunta": "Com que frequência sente que está a progredir para alcançar os seus objetivos no trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1690387302,
+        "pergunta": "No trabalho, com que frequência se sente absorvido/a no que está a fazer?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1781156309,
+        "pergunta": "Em geral, como diria que é a sua saúde?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 747389213,
+        "pergunta": "No trabalho, com que frequência se sente alegre?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1084052113,
+        "pergunta": "Até que ponto recebe ajuda e apoio dos colegas de trabalho quando precisa deles?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 428843224,
+        "pergunta": "No trabalho, com que frequência se sente ansioso/a?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1821940231,
+        "pergunta": "Com que frequência alcança as metas de trabalho importantes que definiu para si mesmo/a?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 982821141,
+        "pergunta": "Em geral, até que ponto sente que o que faz no trabalho é valioso e vale a pena?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 129959955,
+        "pergunta": "No trabalho, com que frequência se sente positivo/a?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1064242087,
+        "pergunta": "Até que ponto se sente entusiasmado/a e interessado/a no seu trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 282059358,
+        "pergunta": "Quão sozinho/a se sente no trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1006169780,
+        "pergunta": "Quão satisfeito/a está com a sua saúde física atual?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 125290073,
+        "pergunta": "No trabalho, com que frequência se sente zangado/a?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1478214665,
+        "pergunta": "Até que ponto se sente apreciado/a pelos seus colegas de trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1350592002,
+        "pergunta": "Com que frequência é capaz de lidar com as suas responsabilidades relacionadas com o trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1877836579,
+        "pergunta": "De um modo geral, até que ponto sente que tem um sentido de direção no seu trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1117408967,
+        "pergunta": "Em comparação com outros da sua mesma idade e sexo, como é a sua saúde?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 687690664,
+        "pergunta": "Quão satisfeito/a está com as suas relações profissionais?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1597974086,
+        "pergunta": "No trabalho, com que frequência se sente triste?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 1986616754,
+        "pergunta": "No trabalho, com que frequência o tempo passa muito rápido quando está a fazer algo de que gosta?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 987353279,
+        "pergunta": "No trabalho, em que medida se sente satisfeito/a?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      {
+        "entryId": 2046985589,
+        "pergunta": "Considerando todos os aspetos, quão feliz diria que está com o seu trabalho?",
+        "alternativas": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 199515969,
+    "titulo": "Abaixo encontram-se oito afirmações com as quais pode concordar ou discordar relativamente ao seu trabalho. Utilizando uma escala de 1 (Discordo fortemente) a 5 (Concordo fortemente), indique o seu nível de concordância com cada afirmação.",
+    "questoes": [
+      {
+        "entryId": 315184112,
+        "pergunta": "O meu trabalho tem propósito e um significado importante para mim.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1977289549,
+        "pergunta": "As minhas relações no trabalho (com colegas e chefias) são de apoio e gratificantes.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 158556448,
+        "pergunta": "Estou envolvido/a e ativamente interessado/a nas minhas atividades profissionais.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 563932409,
+        "pergunta": "Contribuo ativamente para o sucesso e bem-estar da minha equipa/colegas de trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1355061101,
+        "pergunta": "Sinto-me competente e capaz nas tarefas e responsabilidades que assumo no trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1423010150,
+        "pergunta": "Sinto que sou um bom profissional e tenho uma boa vida no trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 181319943,
+        "pergunta": "Sou otimista em relação ao meu futuro profissional nesta organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 694395215,
+        "pergunta": "Sinto que sou respeitado/a no meu local de trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 466298343,
+    "titulo": "Numa escala de 1 (Discordo Fortemente) a 5 (Concordo Fortemente), atribua notas para os aspetos citados abaixo, relacionados com o seu trabalho:",
+    "questoes": [
+      {
+        "entryId": 1976545310,
+        "pergunta": "O meu líder demonstra um interesse genuíno pelo bem-estar da equipa",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1244948973,
+        "pergunta": "O meu líder apoia os membros da equipa para que possam desenvolver-se profissionalmente",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 757708849,
+        "pergunta": "O meu líder incentiva a colaboração e o trabalho em equipa",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 823250471,
+        "pergunta": "O meu líder escuta atentamente as preocupações dos colaboradores",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1410376908,
+        "pergunta": "O meu líder age com humildade, colocando as necessidades da equipa em primeiro lugar",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 420935355,
+        "pergunta": "O meu líder está comprometido em ajudar a equipa a atingir os seus objetivos pessoais e profissionais",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 229362718,
+    "titulo": "Numa escala de 1 (Discordo totalmente) a 5 (Concordo totalmente), indique o seu grau de concordância relativamente ao seu líder:",
+    "questoes": [
+      {
+        "entryId": 865380645,
+        "pergunta": "Tem uma compreensão clara de para onde vamos.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2115769679,
+        "pergunta": "Tem uma ideia clara de onde quer que a nossa unidade esteja daqui a 5 anos.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 153634840,
+        "pergunta": "Não tem ideia nenhuma de para onde a organização vai. (R)",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 972488808,
+        "pergunta": "Diz coisas que tornam os colaboradores orgulhosos de fazer parte desta organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 591415489,
+        "pergunta": "Diz coisas positivas sobre a nossa unidade de trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 700788971,
+        "pergunta": "Encoraja as pessoas a verem ambientes em mudança como situações cheias de oportunidades.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1347386594,
+        "pergunta": "Desafia-me a pensar em problemas antigos de formas novas.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1967752519,
+        "pergunta": "Tem ideias que me obrigaram a repensar coisas que nunca tinha questionado antes.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 932249426,
+        "pergunta": "Desafiou-me a repensar algumas das minhas premissas básicas sobre o meu trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1280716648,
+        "pergunta": "Considera os meus sentimentos pessoais antes de agir.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1733001206,
+        "pergunta": "Comporta-se de uma forma atenta às minhas necessidades pessoais.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1257184161,
+        "pergunta": "Vê a que os interesses dos colaboradores são devidamente considerados.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1644236510,
+        "pergunta": "Elogia-me quando faço um trabalho melhor do que a média.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 369447144,
+        "pergunta": "Reconhece melhorias na qualidade do meu trabalho.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 541274787,
+        "pergunta": "Elogia-me pessoalmente quando faço um trabalho excecional.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 355649401,
+    "titulo": "Numa escala de 1 (Discordo totalmente) a 5 (Concordo totalmente), indique o seu grau de concordância relativamente ao seu líder.\n\nO meu líder...",
+    "questoes": [
+      {
+        "entryId": 841527531,
+        "pergunta": "ouve o que os colaboradores têm para dizer.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1587361403,
+        "pergunta": "disciplina os colaboradores que violam princípios éticos.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 872717294,
+        "pergunta": "conduz a sua vida pessoal de uma forma ética.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2061876680,
+        "pergunta": "tem em mente os melhores interesses da organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1691150244,
+        "pergunta": "toma decisões justas e equilibradas.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2003430920,
+        "pergunta": "é uma pessoa de confiança.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 698444589,
+        "pergunta": "discute valores éticos com os colaboradores .",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1341442619,
+        "pergunta": "dá o exemplo em como fazer as coisas de forma mais ética.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 341562263,
+        "pergunta": "define sucesso, não apenas pelos resultados em si, mas também pela forma como estes são obtidos.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1364686846,
+        "pergunta": "quando toma decisões questiona sobre \"o que é mais correto fazer?\"",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1293037284,
+    "titulo": "Numa escala de 1 (Discordo totalmente) a 5 (Concordo totalmente), indique o seu grau de concordância relativamente ao seu líder:",
+    "questoes": [
+      {
+        "entryId": 1481425776,
+        "pergunta": "O líder da minha equipa pede-me para obedecer completamente às suas instruções.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 866315424,
+        "pergunta": "O líder da minha equipa determina todas as decisões na organização, sejam elas importantes ou não.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1691926923,
+        "pergunta": "O líder da minha equipa tem sempre a última palavra nas reuniões.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1008709823,
+        "pergunta": "O líder da minha equipa comporta-se sempre de forma dominadora (ou autoritária) perante os colaboradores.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 2107463470,
+        "pergunta": "Sinto-me pressionado(a) ao trabalhar com ele/ela.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 447695859,
+        "pergunta": "O líder da minha equipa exerce uma disciplina rigorosa sobre os subordinados.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 965032164,
+        "pergunta": "O líder da minha equipa repreende-nos quando não conseguimos cumprir as nossas tarefas.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 1397831989,
+        "pergunta": "O líder da minha equipa enfatiza que a nossa equipa/grupo deve ter o melhor desempenho de todas as unidades da organização.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "entryId": 551740613,
+        "pergunta": "Temos de seguir as suas regras para que as tarefas sejam feitas. Caso contrário, ele/ela pune-nos severamente.",
+        "alternativas": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 981203387,
+    "titulo": "Género:",
+    "questoes": [
+      {
+        "entryId": 597118511,
+        "pergunta": "Género:",
+        "alternativas": [
+          "Masculino",
+          "Feminino",
+          "Prefiro não dizer"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 588190764,
+    "titulo": "Idade:",
+    "questoes": [
+      {
+        "entryId": 1551581666,
+        "pergunta": "Idade:",
+        "alternativas": [
+          "18-25",
+          "26-35",
+          "36-45",
+          "46-55",
+          "56-65",
+          "66 ou +"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 117258971,
+    "titulo": "Habilitações Literárias:",
+    "questoes": [
+      {
+        "entryId": 838409150,
+        "pergunta": "Habilitações Literárias:",
+        "alternativas": [
+          "Ensino Básico / Fundamental (1º ao 9º ano)",
+          "Ensino Secundário / Médio (12º ano)",
+          "Graduação Licenciatura | Bacharel",
+          "Pós-graduação | Especialização",
+          "Mestrado | Doutoramento"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1863986090,
+    "titulo": "Anos que trabalha na sua empresa atual?",
+    "questoes": [
+      {
+        "entryId": 1238416916,
+        "pergunta": "Anos que trabalha na sua empresa atual?",
+        "alternativas": [
+          "< 1 ano",
+          "1 - 3 anos",
+          "4 - 6 anos",
+          "> 6 anos"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1610884522,
+    "titulo": "Tamanho da organização onde trabalha atualmente (número aproximado de colaboradores):",
+    "questoes": [
+      {
+        "entryId": 1526877193,
+        "pergunta": "Tamanho da organização onde trabalha atualmente (número aproximado de colaboradores):",
+        "alternativas": [
+          "1 a 9 (Organização pequena)",
+          "10 a 49 (Pequena-média)",
+          "50 a 249 (Organização Média)",
+          "250 ou mais (Empresa de grande-porte)"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 90366541,
+    "titulo": "Tipo de Vínculo com a empresa:",
+    "questoes": [
+      {
+        "entryId": 1608516216,
+        "pergunta": "Tipo de Vínculo com a empresa:",
+        "alternativas": [
+          "Contrato de Trabalho",
+          "Prestação de Serviços"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1684660470,
+    "titulo": "Número de anos de experiência profissional:",
+    "questoes": [
+      {
+        "entryId": 542331173,
+        "pergunta": "Número de anos de experiência profissional:",
+        "alternativas": [
+          "0 a 2 anos",
+          "3 a 5 anos",
+          "6 a 10 anos",
+          "+ 11 anos"
+        ]
+      }
+    ]
+  }
+]
