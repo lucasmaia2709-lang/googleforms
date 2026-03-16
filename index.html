@@ -17,11 +17,7 @@
             --accent: #10b981;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -31,15 +27,9 @@
             padding: 2rem;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1000px; margin: 0 auto; }
 
-        header {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
+        header { margin-bottom: 3rem; text-align: center; }
 
         h1 {
             font-size: 2.5rem;
@@ -51,10 +41,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
 
         .form-info {
             background: var(--card-bg);
@@ -67,10 +54,7 @@
             align-items: center;
         }
 
-        .controls {
-            display: flex;
-            gap: 1rem;
-        }
+        .controls { display: flex; gap: 1rem; }
 
         button {
             padding: 0.75rem 1.5rem;
@@ -81,25 +65,10 @@
             transition: all 0.2s;
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-main);
-        }
-
-        .btn-outline:hover {
-            background: var(--border);
-        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+        .btn-outline:hover { background: var(--border); }
 
         .question-card {
             background: var(--card-bg);
@@ -107,365 +76,305 @@
             border-radius: 1rem;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            transition: border-color 0.2s;
         }
 
-        .question-card:hover {
-            border-color: var(--primary);
-        }
-
-        .question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .question-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-main);
-            max-width: 80%;
-        }
-
-        .question-type {
-            font-size: 0.8rem;
-            padding: 0.25rem 0.5rem;
-            background: var(--bg);
-            border-radius: 0.25rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
+        .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .question-title { font-size: 1.1rem; font-weight: 700; color: #818cf8; max-width: 90%; }
+        
         .entry-item {
-            background: rgba(15, 23, 42, 0.5);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-top: 0.75rem;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
             border-left: 4px solid var(--primary);
+            transition: all 0.2s;
         }
+        .entry-item:hover { background: rgba(15, 23, 42, 0.6); }
 
-        .entry-id {
-            font-family: monospace;
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
+        .entry-id { font-family: monospace; color: var(--text-muted); font-size: 0.75rem; margin-bottom: 0.4rem; display: block; opacity: 0.5; }
 
-        .options-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
+        .pergunta-text { font-size: 1rem; font-weight: 500; color: var(--text-main); margin-bottom: 0.75rem; display: block; }
 
-        .option-tag {
-            font-size: 0.85rem;
-            padding: 0.2rem 0.6rem;
-            background: var(--border);
-            border-radius: 1rem;
-            color: var(--text-main);
-        }
+        .options-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .option-tag { font-size: 0.85rem; padding: 0.35rem 0.75rem; background: var(--border); border-radius: 0.5rem; color: var(--text-main); cursor: pointer; transition: all 0.2s; }
+        .option-tag:hover { background: var(--primary); transform: scale(1.05); }
 
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
+        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); }
 
-        /* Glassmorphism effect */
-        .glass {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        /* Settings Bar */
         .settings-bar {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
             border-bottom: 1px solid var(--border);
             padding: 1rem 2rem;
             display: flex;
             gap: 2rem;
-            align-items: flex-end; /* Alinhar botões na base do campo de texto */
+            align-items: flex-end; 
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .setting-field {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            flex-grow: 1;
-        }
-
-        .setting-field label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-        }
-
+        .setting-field { display: flex; flex-direction: column; gap: 0.25rem; flex-grow: 1; }
+        .setting-field label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); }
         .setting-field input, .setting-field textarea {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 0.5rem;
-            border-radius: 0.4rem;
-            font-size: 0.9rem;
+            background: var(--bg); border: 1px solid var(--border); color: white; padding: 0.6rem; border-radius: 0.5rem; font-size: 0.9rem;
         }
 
-        /* Loading Overlay */
         #loading-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(5px);
         }
 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--border);
-            border-top: 5px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        .spinner { width: 40px; height: 40px; border: 4px solid var(--border); border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 1rem; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
     <div id="loading-overlay">
         <div class="spinner"></div>
-        <p id="loading-text" style="font-weight: 600; font-size: 1.2rem;">IA analisando questões...</p>
-        <p class="subtitle">Isso pode levar alguns segundos dependendo da complexidade.</p>
+        <p id="loading-text" style="font-weight: 600;">IA Gerando Persona...</p>
     </div>
 
     <div class="settings-bar glass">
         <div class="setting-field" style="max-width: 300px;">
-            <label>Cloudflare Worker URL</label>
-            <input type="text" id="worker-url" placeholder="https://seu-worker.workers.dev" onchange="saveSettings()">
+            <label>Worker URL</label>
+            <input type="text" id="worker-url" onchange="saveSettings()">
         </div>
         <div class="setting-field">
-            <label>👤 Perfil da Persona (Ajudante Geral até Eng. Civil)</label>
-            <textarea id="persona-text" placeholder="Descreva o comportamento da IA..." rows="4" onchange="saveSettings()"></textarea>
+            <label>👤 Persona Gerada</label>
+            <textarea id="persona-text" placeholder="Gere uma persona..." rows="3" readonly></textarea>
         </div>
-        <button class="btn-primary" style="background: #10b981; white-space: nowrap; height: 3.5rem;" onclick="gerarPersonaIA()">🎲 Gerar Persona</button>
+        <button class="btn-primary" style="background: #10b981; height: 3.5rem; align-self: flex-end;" onclick="gerarPersonaIA()">🎲 Gerar Persona</button>
     </div>
 
     <div class="container">
         <header>
-            <h1>Form Manager Pro <span style="font-size: 0.8rem; vertical-align: middle; opacity: 0.5;">v2.2 (IA Turbo)</span></h1>
-            <p class="subtitle">Visualização e Automação de Google Forms</p>
+            <h1>Manager Pro <span style="font-size: 0.8rem; opacity: 0.6;">v3.9 (Logic Consistency)</span></h1>
+            <p class="subtitle">Ajuste manual e controle de correlação lógica</p>
         </header>
 
         <div class="form-info glass">
-            <div>
-                <p style="font-weight: 600;">Status da Extração</p>
+            <div style="flex-grow: 1;">
+                <p style="font-weight: 600; font-size: 0.9rem;">CONFIGURAÇÃO DE RESPOSTA</p>
                 <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem;">
-                    <p class="subtitle" id="stats" style="margin: 0;">Carregando dados...</p>
-                    <select id="profile-selector" class="btn-outline" style="padding: 0.4rem; height: auto; font-size: 0.85rem;">
-                        <option value="enthusiast">🌟 Perfil: Entusiasta (Satisfeito)</option>
-                        <option value="neutral" selected>⚖️ Perfil: Neutro (Equilibrado)</option>
-                        <option value="critic">💢 Perfil: Crítico (Descontente)</option>
+                    <select id="profile-selector" class="btn-outline" style="padding: 0.5rem; border-radius: 0.5rem;">
+                        <option value="enthusiast">🌟 Entusiasta (Satisfeito)</option>
+                        <option value="neutral" selected>⚖️ Neutro (Equilibrado)</option>
+                        <option value="critic">💢 Crítico (Descontente)</option>
                     </select>
+                    <p class="subtitle" id="stats" style="margin: 0; font-size: 0.9rem;"></p>
                 </div>
             </div>
             <div class="controls">
-                <button class="btn-outline" onclick="window.location.reload()">Resetar</button>
-                <div style="display: flex; gap: 0.5rem;">
-                    <button class="btn-primary" style="background: #8b5cf6;" onclick="gerarRespostas()">🎰 Rnd</button>
-                    <button class="btn-primary" style="background: #6366f1;" onclick="gerarRespostasIA()">🤖 Gerar com IA</button>
-                </div>
-                <button class="btn-primary" style="background: #f59e0b;" id="btn-review" onclick="revisarNoGoogle()" disabled>🔍 Revisar no Google</button>
-                <button class="btn-primary" id="btn-send" onclick="enviarParaGoogle()" style="display: none;" disabled>🚀 Enviar Agora</button>
+                <button class="btn-primary" id="btn-fill" onclick="preencherComLogica()" disabled>🤖 Preencher Tudo</button>
+                <button class="btn-primary" style="background: #f59e0b;" id="btn-review" onclick="revisarNoGoogle()" disabled>🔍 Ver no Google Forms</button>
             </div>
         </div>
 
-        <div id="questions-list">
-            <div class="loading">Carregando estrutura do formulário...</div>
-        </div>
+        <div id="questions-list"></div>
     </div>
 
     <script>
         let currentFormData = [];
+        let currentPersona = null;
+        let chosenData = {};
+
+        // Mapeamento de Clusters para Consistência
+        const CLUSTERS = {
+            // Liderança Positiva (Desejável)
+            positiveLeadership: {
+                ids: ["1976545310", "1244948973", "757708849", "823250471", "1410376908", "420935355", "865380645", "2115769679", "972488808", "591415489", "700788971", "1347386594", "1967752519", "932249426", "1280716648", "1733001206", "1257184161", "1644236510", "369447144", "541274787", "841527531", "1587361403", "872717294", "2061876680", "1691150244", "2003430920", "698444589", "1341442619", "341562263", "1364686846"],
+                weight: 1.0
+            },
+            // Liderança Autoritária (Normalmente Inverso da satisfação/liderança positiva)
+            authoritarianLeadership: {
+                ids: ["1481425776", "866315424", "1691926923", "1008709823", "2107463470", "447695859", "965032164", "1397831989", "551740613"],
+                weight: -0.8 // Inverso
+            },
+            // Bem-estar e Felicidade
+            wellbeing: {
+                ids: ["1781156309", "747389213", "129959955", "1064242087", "1006169780", "1350592002", "1117408967", "687690664", "1986616754", "987353279", "2046985589", "1634913014", "575207883", "1690387302", "1821940231", "982821141", "1478214665", "1877836579"],
+                weight: 1.0
+            },
+            // Sentimentos Negativos (Inverso do bem-estar)
+            negativeEmotions: {
+                ids: ["428843224", "125290073", "1597974086", "282059358"],
+                weight: -0.9 // Fortemente Inverso
+            },
+            // Inovação e Proatividade
+            innovation: {
+                ids: ["2067981114", "1743965985", "336636506", "360127663", "358850342", "759080217", "470208321", "847943349", "667443043", "1060877777", "674859746", "565970282", "1083840627", "1886116540", "2126467353", "325232157", "853857315"],
+                weight: 1.0
+            }
+        };
+
+        const REVERSE_CODED = ["153634840"];
+
+        const normalizeText = (text) => text ? text.toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim() : "";
 
         async function loadFormData() {
             loadSettings();
             try {
                 const response = await fetch('form_data_cleaned.json');
-                const rawText = await response.text();
-                const jsonStart = rawText.indexOf('[');
-                const jsonText = rawText.substring(jsonStart);
-                const data = JSON.parse(jsonText);
+                const data = await response.json();
                 currentFormData = data;
-
                 renderQuestions(data);
-                updateStats(data);
-            } catch (error) {
-                console.error('Erro ao carregar dados:', error);
-                document.getElementById('questions-list').innerHTML = `
-                    <div class="loading" style="color: #ef4444;">
-                        Erro ao carregar dados. Certifique-se de que o arquivo 'form_data_cleaned.json' existe.
-                    </div>
-                `;
-            }
-        }
-
-        function getTypeName(type) {
-            const types = {
-                2: 'Múltipla Escolha',
-                7: 'Escala Linear',
-                8: 'Seção / Título',
-                9: 'Grade'
-            };
-            return types[type] || `Tipo ${type}`;
+                document.getElementById('stats').textContent = `${data.length} blocos carregados.`;
+            } catch (e) { console.error(e); }
         }
 
         function renderQuestions(data) {
             const list = document.getElementById('questions-list');
             list.innerHTML = '';
-
             data.forEach(q => {
-                if (q.tipo === 8 && q.entradas.length === 0) {
-                    const section = document.createElement('div');
-                    section.innerHTML = `<h2 style="margin: 2rem 0 1rem 0; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">${q.titulo}</h2>`;
-                    list.appendChild(section);
-                    return;
-                }
-
                 const card = document.createElement('div');
                 card.className = 'question-card glass';
-
                 let entriesHtml = q.entradas.map(e => `
                     <div class="entry-item">
-                        <span class="entry-id">entry.${e.entryId}</span>
-                        <p style="font-size: 0.95rem; font-weight: 500;">${e.subTitulo || 'Resposta Principal'}</p>
-                        <div class="options-list">
-                            ${e.alternativas.map(a => `<span class="option-tag">${a}</span>`).join('')}
-                        </div>
+                        <span class="entry-id">ID: ${e.entryId}</span>
+                        <span class="pergunta-text">${e.subTitulo}</span>
+                        <div class="options-list">${e.alternativas.map(a => `<span class="option-tag" data-id="${e.entryId}" onclick="manualmenteSetarResposta('${e.entryId}', '${a.replace(/'/g, "\\'")}')">${a}</span>`).join('')}</div>
                     </div>
                 `).join('');
-
-                card.innerHTML = `
-                    <div class="question-header">
-                        <div class="question-title">${q.titulo}</div>
-                        <span class="question-type">${getTypeName(q.tipo)}</span>
-                    </div>
-                    <div class="question-content">
-                        ${entriesHtml}
-                    </div>
-                `;
+                card.innerHTML = `<div class="question-header"><div class="question-title">${q.titulo}</div></div><div class="question-content">${entriesHtml}</div>`;
                 list.appendChild(card);
             });
         }
 
-        function updateStats(data) {
-            const totalQuestions = data.filter(q => q.entradas.length > 0).length;
-            const totalEntries = data.reduce((acc, q) => acc + q.entradas.length, 0);
-            document.getElementById('stats').textContent = `${totalQuestions} perguntas encontradas | ${totalEntries} campos de entrada identificados`;
+        async function gerarPersonaIA() {
+            let url = document.getElementById('worker-url').value.trim();
+            if (!url) url = 'googleformsrespode.lucasmaia2709.workers.dev';
+            if (!url.startsWith('http')) url = 'https://' + url;
+            const profile = document.getElementById('profile-selector').value;
+            showLoading('Criando Persona...');
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ profile, seed: Math.random() + Date.now() })
+                });
+                const result = await response.json();
+                if (result.error) throw new Error(result.error);
+                currentPersona = result;
+                document.getElementById('persona-text').value = `CARGO: ${result.cargo} | IDADE: ${result.idade}\n${result.persona}`;
+                document.getElementById('btn-fill').disabled = false;
+                saveSettings();
+            } catch (e) { alert('Erro: ' + e.message); }
+            hideLoading();
         }
 
-        let chosenData = {};
-
-        const fixedConstraints = {
-            "597118511": ["Masculino", "Feminino"],
-            "1551581666": ["18-25", "26-35", "36-45"],
-            "838409150": [
-                "Graduação Licenciatura | Bacharel", 
-                "Pós-graduação | Especialização", 
-                "Mestrado | Doutoramento"
-            ],
-            "1238416916": ["1 - 3 anos", "4 - 6 anos", "> 6 anos"],
-            "1526877193": [
-                "10 a 49 (Pequena-média)", 
-                "50 a 249 (Organização Média)", 
-                "250 ou mais (Empresa de grande-porte)"
-            ]
-        };
-
-        function gerarRespostas() {
-            if (!currentFormData.length) return alert('Dados não carregados!');
+        function preencherComLogica() {
+            if (!currentPersona) return;
             const profile = document.getElementById('profile-selector').value;
             const sentimentMap = {
-                high: ['sempre', 'sim', 'concordo', 'totalmente', 'muito', 'frequentemente', 'excelente', 'bom', 'satisfeito'],
-                low: ['nunca', 'não', 'discordo', 'insatisfeito', 'ruim', 'raramente', 'pouco']
-            };
-            const normalizeText = (text) => text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+                enthusiast: { base: 4.6, std: 0.35, floor: 0.7 },
+                neutral: { base: 3.0, std: 0.8, floor: 0.3 },
+                critic: { base: 1.4, std: 0.35, floor: 0.1 }
+            }[profile];
 
-            currentFormData.forEach(q => {
-                q.entradas.forEach(e => {
+            // Define sentimentos base por cluster para manter consistência
+            const clusterSentiments = {};
+            Object.keys(CLUSTERS).forEach(key => {
+                clusterSentiments[key] = sentimentMap.base + (gauss() * 0.2); // Jitter leve na base do cluster
+            });
+
+            currentFormData.forEach(section => {
+                section.entradas.forEach(e => {
+                    const idStr = e.entryId.toString();
                     let valor;
-                    if (e.entryId === 1689161648) {
-                        valor = "Aceito participar";
-                    } else {
-                        const options = e.alternativas;
-                        let filteredOptions = [...options];
-                        if (fixedConstraints[e.entryId]) {
-                            const allowed = fixedConstraints[e.entryId];
-                            filteredOptions = options.filter(opt => allowed.includes(opt));
-                            if (filteredOptions.length === 0) filteredOptions = [...options];
-                        }
-                        const total = filteredOptions.length;
-                        let index = -1;
-                        const listWithNormalized = filteredOptions.map((opt, i) => ({ text: normalizeText(opt), index: i }));
-                        if (profile === 'enthusiast') {
-                            const matches = listWithNormalized.filter(item => sentimentMap.high.some(key => item.text.includes(key)));
-                            if (matches.length > 0) index = matches[Math.floor(Math.random() * matches.length)].index;
-                        } else if (profile === 'critic') {
-                            const matches = listWithNormalized.filter(item => sentimentMap.low.some(key => item.text.includes(key)));
-                            if (matches.length > 0) index = matches[Math.floor(Math.random() * matches.length)].index;
-                        }
-                        if (index === -1) {
-                            const rand = Math.random();
-                            if (profile === 'enthusiast') {
-                                if (rand < 0.7) index = Math.floor(total * 0.8 + Math.random() * (total * 0.2)); 
-                                else index = Math.floor(Math.random() * total);
-                            } else if (profile === 'critic') {
-                                if (rand < 0.7) index = Math.floor(Math.random() * (total * 0.3));
-                                else index = Math.floor(Math.random() * total);
-                            } else {
-                                index = Math.floor(Math.random() * total);
+
+                    // Regras Demográficas
+                    if (idStr === "597118511") valor = "Masculino";
+                    else if (idStr === "1551581666") valor = findMatchingOption(e.alternativas, currentPersona.idade);
+                    else if (idStr === "838409150") valor = findMatchingOption(e.alternativas, currentPersona.escolaridade);
+                    else if (idStr === "1238416916") valor = findMatchingOption(e.alternativas, currentPersona.experiencia);
+                    else if (idStr === "1526877193") valor = findMatchingOption(e.alternativas, currentPersona.tamanho_organizacao);
+                    else if (idStr === "1608516216") valor = findMatchingOption(e.alternativas, currentPersona.vinculo);
+                    else if (idStr === "542331173") valor = findMatchingOption(e.alternativas, currentPersona.experiencia);
+                    else if (idStr === "1689161648") valor = "Aceito participar";
+                    else {
+                        const total = e.alternativas.length;
+                        let targetMean = sentimentMap.base;
+                        let weight = 1.0;
+
+                        // Verifica se pertence a um cluster
+                        for (let clusterName in CLUSTERS) {
+                            if (CLUSTERS[clusterName].ids.includes(idStr)) {
+                                targetMean = clusterSentiments[clusterName];
+                                weight = CLUSTERS[clusterName].weight;
+                                break;
                             }
                         }
+
+                        // Aplica inversão se o peso for negativo
+                        if (weight < 0) {
+                            // Inverte a média: se era 4.5 (em 5), vira 1.5
+                            targetMean = (total + 1) - targetMean;
+                        }
+
+                        // Inversão para perguntas negativas específicas (R)
+                        if (REVERSE_CODED.includes(idStr)) {
+                            targetMean = (total + 1) - targetMean;
+                        }
+
+                        // Cálculo do índice com Normal Distribution
+                        let relMean = (targetMean - 1) / (total - 1);
+                        let norm = gauss() * (sentimentMap.std / total);
+                        let rawIndex = (relMean * (total - 1)) + (norm * (total - 1));
+                        
+                        let index = Math.round(rawIndex);
                         index = Math.max(0, Math.min(total - 1, index));
-                        valor = filteredOptions[index];
+                        valor = e.alternativas[index];
                     }
-                    chosenData[`entry.${e.entryId}`] = valor;
-                    updateUISelection(e.entryId, valor);
+                    chosenData[`entry.${idStr}`] = valor;
+                    updateUI(idStr, valor);
                 });
             });
-            document.getElementById('stats').textContent = '✨ Respostas geradas!';
             document.getElementById('btn-review').disabled = false;
-            document.getElementById('btn-send').disabled = false;
         }
 
-        function updateUISelection(entryId, valor) {
-            document.querySelectorAll('.entry-item').forEach(item => {
-                if (item.querySelector('.entry-id').textContent === `entry.${entryId}`) {
-                    item.querySelectorAll('.option-tag').forEach(tag => {
-                        if (tag.textContent === valor) {
-                            tag.style.background = 'var(--accent)';
-                            tag.style.color = 'white';
-                            tag.style.opacity = '1';
-                        } else {
-                            tag.style.background = 'var(--border)';
-                            tag.style.opacity = '0.3';
-                        }
-                    });
+        function gauss() {
+            let u = 0, v = 0;
+            while(u === 0) u = Math.random();
+            while(v === 0) v = Math.random();
+            return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+        }
+
+        function manualmenteSetarResposta(entryId, valor) {
+            chosenData[`entry.${entryId}`] = valor;
+            updateUI(entryId, valor);
+            document.getElementById('btn-review').disabled = false;
+        }
+
+        function findMatchingOption(options, target) {
+            if (!target) return options[0];
+            const nt = normalizeText(target);
+            const keywords = nt.split(/[\s/|-]+/).filter(w => w.length > 2);
+            let best = null, maxH = -1;
+            options.forEach(opt => {
+                const no = normalizeText(opt);
+                let h = 0;
+                keywords.forEach(k => { if (no.includes(k)) h++; });
+                if (h > maxH) { maxH = h; best = opt; }
+            });
+            return (maxH > 0) ? best : options[0];
+        }
+
+        function updateUI(entryId, valor) {
+            document.querySelectorAll(`.option-tag[data-id="${entryId}"]`).forEach(tag => {
+                if (tag.textContent === valor) {
+                    tag.style.background = 'var(--accent)';
+                    tag.style.fontWeight = '700';
+                    tag.style.opacity = '1';
+                } else {
+                    tag.style.background = 'var(--border)';
+                    tag.style.fontWeight = '400';
+                    tag.style.opacity = '0.3';
                 }
             });
         }
@@ -477,180 +386,10 @@
             window.open(`${baseUrl}?${params.toString()}`, '_blank');
         }
 
-        async function enviarParaGoogle() {
-            const btn = document.getElementById('btn-send');
-            try {
-                btn.disabled = true;
-                btn.textContent = '⏳ Enviando...';
-                const url = "https://docs.google.com/forms/d/e/1FAIpQLSe4Nud-H974E-T2vSCqERbqHzWx96Jyz-JbiJPNvmYCFm4UAQ/formResponse";
-                const params = new URLSearchParams();
-                for (let key in chosenData) params.append(key, chosenData[key]);
-                await fetch(url, { method: 'POST', mode: 'no-cors', body: params });
-                document.getElementById('stats').innerHTML = '<span style="color: var(--accent);">🏆 SUCESSO!</span>';
-                btn.textContent = '✓ Enviado';
-            } catch (error) {
-                btn.textContent = 'Erro!';
-            }
-        }
-
-        function saveSettings() {
-            localStorage.setItem('form_worker_url', document.getElementById('worker-url').value);
-            localStorage.setItem('form_persona_text', document.getElementById('persona-text').value);
-        }
-
-        function loadSettings() {
-            document.getElementById('worker-url').value = localStorage.getItem('form_worker_url') || '';
-            document.getElementById('persona-text').value = localStorage.getItem('form_persona_text') || '';
-        }
-
-        function showLoading(text) {
-            document.getElementById('loading-text').textContent = text;
-            document.getElementById('loading-overlay').style.display = 'flex';
-        }
-
-        function hideLoading() {
-            document.getElementById('loading-overlay').style.display = 'none';
-        }
-
-        async function gerarPersonaIA() {
-            let url = document.getElementById('worker-url').value.trim();
-            if (!url) return alert('Configure a URL do Worker!');
-            
-            // Garantir que a URL tem protocolo
-            if (!url.startsWith('http')) url = 'https://' + url;
-            
-            const profile = document.getElementById('profile-selector').options[document.getElementById('profile-selector').selectedIndex].text;
-            showLoading('IA construindo persona...');
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        type: "generate_persona",
-                        persona: "Gere uma descrição de um trabalhador da construção civil.",
-                        profile: profile 
-                    })
-                });
-                const result = await response.json();
-                if (result.persona) {
-                    // Se a IA incluiu o cargo, adicionamos no topo da descrição
-                    const header = result.cargo ? `[${result.cargo}] ` : "";
-                    document.getElementById('persona-text').value = header + result.persona;
-                    saveSettings();
-                }
-            } catch (e) {
-                alert('Erro ao gerar persona. Verifique a URL do Worker.');
-            }
-            hideLoading();
-        }
-
-        async function gerarRespostasIA() {
-            let url = document.getElementById('worker-url').value.trim();
-            if (!url) return alert('Configure a URL do Worker!');
-            if (!url.startsWith('http')) url = 'https://' + url;
-            
-            const persona = document.getElementById('persona-text').value || "Engenheiro Civil padrão.";
-            const profile = document.getElementById('profile-selector').options[document.getElementById('profile-selector').selectedIndex].text;
-            
-            // 1. Identificar quais IDs ainda estão faltando
-            const requiredEntryIds = [];
-            currentFormData.forEach(q => q.entradas.forEach(e => requiredEntryIds.push(e.entryId.toString())));
-            
-            const missingIds = requiredEntryIds.filter(id => !chosenData[`entry.${id}`]);
-            
-            if (missingIds.length === 0 && Object.keys(chosenData).length > 0) {
-                if (!confirm("Todas as perguntas já estão preenchidas. Deseja gerar tudo novamente?")) return;
-                chosenData = {};
-            }
-
-            showLoading(`IA analisando ${missingIds.length || requiredEntryIds.length} questões restantes...`);
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        persona, 
-                        profile,
-                        missingIds: missingIds.length > 0 ? missingIds : null 
-                    })
-                });
-                
-                const rawText = await response.text();
-                
-                function repairJson(text) {
-                    let cleaned = text.replace(/```json/g, "").replace(/```/g, "").trim();
-                    const start = cleaned.indexOf('{');
-                    if (start === -1) return "{}";
-                    let json = cleaned.substring(start);
-                    let braces = 0;
-                    let lastValidComma = -1;
-                    for (let i = 0; i < json.length; i++) {
-                        if (json[i] === '{') braces++;
-                        if (json[i] === '}') braces--;
-                        if (json[i] === ',' && braces === 1) lastValidComma = i;
-                    }
-                    if (braces > 0) {
-                        if (lastValidComma !== -1) json = json.substring(0, lastValidComma) + "}";
-                        else json += "}";
-                    }
-                    return json;
-                }
-
-                let result;
-                let isTruncated = false;
-                try {
-                    const repaired = repairJson(rawText);
-                    result = JSON.parse(repaired);
-                    if (rawText.includes(',') && !rawText.trim().endsWith('}')) isTruncated = true;
-                } catch (e) {
-                    console.error("Erro no Parse:", e);
-                    throw new Error("JSON Inválido recebido da IA");
-                }
-
-                // 2. Mesclar novos resultados no chosenData
-                for (let entryId in result) {
-                    let index = result[entryId];
-                    
-                    // FORÇAR VALORES FIXOS (Gênero e Consentimento)
-                    if (entryId.toString() === "1689161648" || entryId.toString() === "597118511") {
-                        index = 0;
-                    }
-
-                    currentFormData.forEach(q => {
-                        q.entradas.forEach(e => {
-                            if (e.entryId.toString() === entryId.toString()) {
-                                const alternatives = e.alternativas;
-                                const safeIndex = Math.max(0, Math.min(alternatives.length - 1, index));
-                                const valor = alternatives[safeIndex];
-                                chosenData[`entry.${e.entryId}`] = valor;
-                                updateUISelection(e.entryId, valor);
-                            }
-                        });
-                    });
-                }
-
-                // 3. Recalcular cobertura
-                let totalAnswered = 0;
-                requiredEntryIds.forEach(id => {
-                    if (chosenData[`entry.${id}`]) totalAnswered++;
-                });
-
-                const coverage = Math.round((totalAnswered / requiredEntryIds.length) * 100);
-                if (coverage < 100) {
-                    document.getElementById('stats').innerHTML = `⚠️ <span style="color: #f59e0b;">Progresso: ${coverage}% (${totalAnswered}/${requiredEntryIds.length})</span>. Clique novamente para gerar o restante!`;
-                } else {
-                    document.getElementById('stats').innerHTML = `✨ <span style="color: var(--accent);">100% Coberto!</span> Pronto para revisão.`;
-                }
-                
-                document.getElementById('btn-review').disabled = false;
-                document.getElementById('btn-send').disabled = false;
-            } catch (error) {
-                console.error(error);
-                alert('Erro na geração IA: ' + error.message);
-            }
-            hideLoading();
-        }
+        function showLoading(text) { document.getElementById('loading-text').textContent = text; document.getElementById('loading-overlay').style.display = 'flex'; }
+        function hideLoading() { document.getElementById('loading-overlay').style.display = 'none'; }
+        function saveSettings() { localStorage.setItem('fmp_worker_url', document.getElementById('worker-url').value); }
+        function loadSettings() { document.getElementById('worker-url').value = localStorage.getItem('fmp_worker_url') || 'googleformsrespode.lucasmaia2709.workers.dev'; }
 
         loadFormData();
     </script>

@@ -1,8 +1,3 @@
-/**
- * Cloudflare Worker Proxy for Gemini AI - v12.0 (Strict Enforcement)
- * Fixes: Fixed Gender (Masculino) and Consent (Aceito).
- */
-
 export default {
   async fetch(request, env) {
     const corsHeaders = {
@@ -14,36 +9,42 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { headers: corsHeaders });
 
     try {
-      const { persona, profile, type, missingIds } = await request.json();
-
-      let systemPrompt = "";
-      let responseMimeType = "text/plain";
-
-      if (type === "generate_persona" || (persona && persona.includes("Gere uma descrição"))) {
-        systemPrompt = `Você é um psicólogo organizacional. Gere uma descrição realista de um profissional da construção civil.
-CARGO (Sorteie): Ajudante Geral, Pedreiro, Mestre de Obras, Técnico de Edificações, Engenheiro Civil.
-Perfil: ${profile}. JSON: {"persona": "...", "cargo": "Cargo"}`;
-        responseMimeType = "application/json";
-      } else {
-        const targetIds = missingIds && missingIds.length > 0 ? missingIds.join(', ') : "Todos os 96 itens";
-        
-        systemPrompt = `Você é: ${persona}. Perfil: ${profile}.
-
-REGRAS OBRIGATÓRIAS:
-1. ID 1689161648 (Consentimento): Escolha SEMPRE índice 0.
-2. ID 597118511 (Gênero): Escolha SEMPRE índice 0 (Masculino).
-3. VARIABILIDADE: Para as demais perguntas (escalas 1-5 ou 0-10), NUNCA repita o mesmo número mais de 3 vezes seguidas. Use nuances baseadas no perfil ${profile}.
-
-CONSISTÊNCIA DE CARGO:
-- AJUDANTE/PEDREIRO: ID 838409150 (Educação) = 0 ou 1.
-- MESTRE: ID 838409150 = 1. Experiência = 2 ou 3.
-- ENGENHEIRO: ID 838409150 = 2, 3 ou 4.
-
-IDs ALVO: ${targetIds}
-
-FORMATO: JSON puro {"ID": indice}.`;
-        responseMimeType = "application/json";
+      if (!env.GEMINI_API_KEY) {
+        throw new Error("GEMINI_API_KEY não configurada no Worker.");
       }
+
+      const body = await request.json();
+      const profile = body.profile || "Neutro";
+      const seed = body.seed || Math.random();
+
+      const systemPrompt = `Você é um psicólogo e consultor de RH especializado na construção civil. 
+Gere os dados de um TRABALHADOR ÚNICO e REALISTA baseado no perfil de satisfação: ${profile}.
+SEED DE ALEATORIEDADE: ${seed}
+
+IMPORTANTE: Seja criativo! NÃO repita sempre os mesmos cargos ou idades. 
+Varie os nomes de cargos, tempos de experiência e histórias de vida.
+
+RETORNE APENAS JSON NO FORMATO:
+{
+  "cargo": "Ex: Armador de Ferro",
+  "idade": "Ex: 46-55",
+  "experiencia": "Ex: > 6 anos",
+  "escolaridade": "Ex: Ensino Médio",
+  "vinculo": "Ex: Prestação de Serviços",
+  "tamanho_organizacao": "Ex: 250 ou mais",
+  "persona": "Descrição de 2 frases únicas sobre esta pessoa específica."
+}
+
+REGRAS DE VALORES (Use EXATAMENTE um destes para cada campo):
+- Cargo: Ajudante Geral, Pedreiro, Mestre de Obras, Técnico em Edificações, Engenheiro Civil, Servente, Armador, Carpinteiro, Eletricista.
+- Idade: "18-25", "26-35", "36-45", "46-55", "56-65", "66 ou +".
+- Escolaridade: "Ensino Básico / Fundamental (1º ao 9º ano)", "Ensino Secundário / Médio (12º ano)", "Graduação Licenciatura | Bacharel", "Pós-graduação | Especialização", "Mestrado | Doutoramento".
+- Experiência (Anos na empresa): "< 1 ano", "1 - 3 anos", "4 - 6 anos", "> 6 anos".
+- Exp Profissional (Total): "0 a 2 anos", "3 a 5 anos", "6 a 10 anos", "+ 11 anos".
+- Vínculo: "Contrato de Trabalho", "Prestação de Serviços".
+- Tamanho Org: "1 a 9 (Organização pequena)", "10 a 49 (Pequena-média)", "50 a 249 (Organização Médio)", "250 ou mais (Empresa de grande-porte)".
+
+Se for entusiasta, a persona deve ser muito positiva. Se for crítico, deve ser muito insatisfeita.`;
 
       const apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
       const response = await fetch(`${apiEndpoint}?key=${env.GEMINI_API_KEY}`, {
@@ -51,18 +52,25 @@ FORMATO: JSON puro {"ID": indice}.`;
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             contents: [{ parts: [{ text: systemPrompt }] }],
-            generationConfig: { temperature: 0.7, responseMimeType: responseMimeType }
+            generationConfig: { 
+              temperature: 1.0, // Aumentado para máxima variabilidade
+              responseMimeType: "application/json" 
+            }
           }),
       });
 
       const geminiData = await response.json();
+      if (!response.ok) throw new Error(geminiData.error?.message || "Erro Gemini");
+
       let aiText = geminiData.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
       return new Response(aiText.replace(/```json/g, "").replace(/```/g, "").trim(), {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       });
 
     } catch (err) {
-      return new Response(JSON.stringify({ error: err.message }), { status: 500, headers: corsHeaders });
+      return new Response(JSON.stringify({ error: err.message }), { 
+        status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
+      });
     }
   },
 };
